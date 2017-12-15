@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import API from './API'
 
 class App extends Component {
+
+  constructor (props) {
+    super(props)
+  }
+
+  componentDidMount () {
+    API.MQTT()
+  }
+
   render() {
     return (
       <div className="App">

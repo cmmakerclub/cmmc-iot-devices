@@ -4469,6 +4469,10 @@ package-json@^2.0.0:
     registry-url "^3.0.3"
     semver "^5.1.0"
 
+"paho-mqtt@https://github.com/cmmakerclub/paho-mqtt.git":
+  version "1.0.3"
+  resolved "https://github.com/cmmakerclub/paho-mqtt.git#dfd84e75d6d1a677405a6c99944c266552d6b5ab"
+
 pako@~1.0.5:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.6.tgz#0101211baa70c4bca4a0f63f2206e97b7dfaf258"
