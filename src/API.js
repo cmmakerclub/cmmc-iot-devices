@@ -1,5 +1,5 @@
-import {INIT_DONE_GET_DATA} from './redux/Store'
 import Paho from 'paho-mqtt/mqttws31'
+import mqtt_filter_topic from './services/mqtt.filter.topic'
 
 const API = {
   MQTT: () => {
@@ -10,26 +10,30 @@ const API = {
       clientId: String(Math.random() * 100)
     }
 
-    const client = new Paho.MQTT.Client(init.hostname, init.port, init.path, init.clientId);
+    const client = new Paho.MQTT.Client(init.hostname, init.port, init.path, init.clientId)
 
-    client.onConnectionLost = onConnectionLost;
-    client.onMessageArrived = onMessageArrived;
-    client.connect({onSuccess:onConnect});
+    client.onConnectionLost = onConnectionLost
+    client.onMessageArrived = onMessageArrived
+    client.connect({onSuccess: onConnect})
 
-    function onConnect() {
-      console.log("onConnect");
+    function onConnect () {
+      console.log('onConnect')
       client.subscribe('CMMC/#')
     }
 
-    function onConnectionLost(responseObject) {
+    function onConnectionLost (responseObject) {
       if (responseObject.errorCode !== 0) {
-        console.log("onConnectionLost:"+responseObject.errorMessage);
+        console.log('onConnectionLost:' + responseObject.errorMessage)
       }
     }
 
-    function onMessageArrived(message) {
-      //console.log("onMessageArrived:"+message.payloadString);
-      INIT_DONE_GET_DATA(message.payloadString)
+    function onMessageArrived (message) {
+      try {
+        const data = JSON.parse(message.payloadString)
+        mqtt_filter_topic(data)
+      } catch (e) {
+        console.log('>>>> message error ', message.payloadString)
+      }
     }
   }
 }
