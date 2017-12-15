@@ -1,3 +1,4 @@
+import {INIT_DONE_GET_DATA} from './redux/Store'
 import Paho from 'paho-mqtt/mqttws31'
 
 const API = {
@@ -27,7 +28,8 @@ const API = {
     }
 
     function onMessageArrived(message) {
-      console.log("onMessageArrived:"+message.payloadString);
+      //console.log("onMessageArrived:"+message.payloadString);
+      INIT_DONE_GET_DATA(message.payloadString)
     }
   }
 }
