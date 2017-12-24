@@ -1,83 +1,56 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import './App.css';
-// import API from './API'
-//
-// class App extends Component {
-//
-//   constructor (props) {
-//     super(props)
-//   }
-//
-//   componentDidMount () {
-//     API.MQTT()
-//   }
-//
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">Welcome to React</h1>
-//         </header>
-//         <p className="App-intro">
-//           To get started, edit <code>src/App.js</code> and save to reload.
-//         </p>
-//       </div>
-//     );
-//   }
-// }
-//
-// export default App;
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import DeviceStatus from './components/DeviceStatus'
+import uuid from 'uuid'
 
-export default class App extends Component {
+class App extends Component {
+
+  constructor (props) {
+    super(props)
+    this.state = {
+      devices: []
+    }
+  }
+
+  componentDidMount () {
+
+    setTimeout(() => {
+
+      const arrayDevices = []
+      Object.keys(this.props.devices).map(key => {
+        arrayDevices.push(this.props.devices[key])
+        console.log(this.props.devices[key])
+      })
+      this.setState({devices: arrayDevices})
+
+    }, 1000)
+
+  }
 
   render () {
     return (
       <div className='container'>
-        <section className="section">
+        <div className="row" style={{marginTop: 30}}>
 
-          <div className="columns is-desktop">
+          {
+            this.state.devices.map(device => {
+              return <DeviceStatus
+                key={uuid()}
+                title={device.d.myName}
+                ip={device.info.ip}
+                heap={device.d.heap}
+                runtime={`${((device.d.millis / 60000) / 60).toFixed(2)} hour`}
+                prefix={device.info.prefix}
+                device={device}
+              />
+            })
+          }
 
-            <div className="column">
-              <div className="card">
-                <div className="card-header">
-                  <p className='card-header-title'>device name</p>
-                </div>
-                <div className="card-content">
-                  <p>ip :</p>
-                  <p>heap :</p>
-                  <p>run time :</p>
-                  <p>prefix :</p>
-                  <div className="level-right">
-                    <button typeof='button' className='button is-light'>MORE INFO</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="column">
-              <div className="card">
-                <div className="card-header">
-                  <p className='card-header-title'>device name</p>
-                </div>
-                <div className="card-content">
-                  <p>ip :</p>
-                  <p>heap :</p>
-                  <p>run time :</p>
-                  <p>prefix :</p>
-                  <div className="level-right">
-                    <button typeof='button' className='button is-light'>MORE INFO</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </section>
+        </div>
       </div>
     )
   }
 
 }
+
+export default connect(state => state)(App)

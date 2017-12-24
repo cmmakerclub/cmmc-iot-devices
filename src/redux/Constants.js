@@ -1,6 +1,7 @@
-const actionsTypes = {
+const ActionTypes = {
   START_GET_DATA: 'START_GET_DATA',
-  DONE_GET_DATA: 'DONE_GET_DATA'
+  DONE_GET_DATA: 'DONE_GET_DATA',
+  MQTT_MESSAGE_ARRIVED: 'MQTT_MESSAGE_ARRIVED'
 }
 
-export default actionsTypes
+export default ActionTypes

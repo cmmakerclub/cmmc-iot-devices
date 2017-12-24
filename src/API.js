@@ -1,5 +1,5 @@
 import Paho from 'paho-mqtt/mqttws31'
-import mqtt_filter_topic from './services/mqtt.filter.topic'
+import { MQTT_MESSAGE_ARRIVED, store } from './redux/Store'
 
 const API = {
   MQTT: () => {
@@ -17,8 +17,8 @@ const API = {
     client.connect({onSuccess: onConnect})
 
     function onConnect () {
-      console.log('onConnect')
-      client.subscribe('CMMC/#')
+      //console.log('onConnect')
+      client.subscribe('MARU/+/status')
     }
 
     function onConnectionLost (responseObject) {
@@ -28,12 +28,8 @@ const API = {
     }
 
     function onMessageArrived (message) {
-      try {
-        const data = JSON.parse(message.payloadString)
-        mqtt_filter_topic(data)
-      } catch (e) {
-        console.log('>>>> message error ', message.payloadString)
-      }
+      //console.log(message.payloadString)
+      MQTT_MESSAGE_ARRIVED(message.payloadString)
     }
   }
 }

@@ -1,11 +1,55 @@
-import actionTypes from './Constants'
+import ActionTypes from './Constants'
+// import { createStore } from 'redux'
 
-const initialState = {}
+let initialState = {
+  devices: [],
+}
 
-export default (state = initialState, action) => {
+const todoApp = (state = initialState, action) => {
 
-  if (action.type === actionTypes.DONE_GET_DATA) {
-    console.log('===== incoming', action.data)
+  switch (action.type) {
+
+    case ActionTypes.MQTT_MESSAGE_ARRIVED : {
+
+      // console.log('==== MESSAGE ARRIVED ====')
+
+      const previousValue = state.devices
+      const currentValue = JSON.parse(action.data)
+
+      if (previousValue[currentValue.d.myName] === undefined) {
+        previousValue[currentValue.d.myName] = currentValue
+      }
+      //
+      // setTimeout(() => {
+      //   state.devices['test'] = 'hello'
+      // }, 3000)
+
+      break;
+
+    }
+
+    default :
+      return state
+
   }
 
 }
+
+// const store = createStore(todoApp)
+
+// console.log(store.getState())
+
+// let currentValue = store.getState()
+//
+// store.subscribe(() => {
+//   let previousValue = currentValue
+//   currentValue = store.getState()
+//
+//   if (previousValue !== currentValue) {
+//     console.log('state has changed')
+//     console.log(store.getState())
+//   }
+// })
+
+
+export default todoApp
