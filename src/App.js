@@ -1,33 +1,46 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import DeviceStatus from './components/DeviceStatus'
 import uuid from 'uuid'
+import store from './flux/Store'
 
-class App extends Component {
+export default class App extends Component {
 
   constructor (props) {
     super(props)
     this.state = {
-      devices: []
+      devices: [],
+      devicesOnline: []
     }
+
+    store.addListener(() => {
+      const devices = store.devices
+      const devicesOnline = store.devicesOnline
+
+      const arrayDevices = []
+      Object.keys(devices).map(key => {
+        arrayDevices.push(devices[key])
+      })
+
+      const arrayDevicesOnline = []
+      Object.keys(devicesOnline).map(key => {
+        arrayDevicesOnline[key] = (devicesOnline[key])
+      })
+
+      this.setState({devices: arrayDevices})
+      this.setState({devicesOnline: arrayDevicesOnline})
+
+      // console.log(this.state)
+    })
+
+    console.log('constructor', this.props)
   }
 
   componentDidMount () {
-
-    setTimeout(() => {
-
-      const arrayDevices = []
-      Object.keys(this.props.devices).map(key => {
-        arrayDevices.push(this.props.devices[key])
-        console.log(this.props.devices[key])
-      })
-      this.setState({devices: arrayDevices})
-
-    }, 1000)
-
+    console.log('componentDidMount', this.props)
   }
 
   render () {
+
     return (
       <div className='container'>
         <div className="row" style={{marginTop: 30}}>
@@ -42,6 +55,7 @@ class App extends Component {
                 runtime={`${((device.d.millis / 60000) / 60).toFixed(2)} hour`}
                 prefix={device.info.prefix}
                 device={device}
+                online={(this.state.devicesOnline[device.d.myName]) !== undefined && true}
               />
             })
           }
@@ -53,4 +67,9 @@ class App extends Component {
 
 }
 
-export default connect(state => state)(App)
+// const mapStateToProps = (state) => {
+//   return {
+//     devices: state.devices,
+//     devicesOnline: state.devicesOnline
+//   }
+// }

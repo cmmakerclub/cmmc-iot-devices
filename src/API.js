@@ -1,5 +1,6 @@
 import Paho from 'paho-mqtt/mqttws31'
-import { MQTT_MESSAGE_ARRIVED, store } from './redux/Store'
+import Dispatcher from './flux/Dispatcher'
+import TypeActions from './flux/Constants'
 
 const API = {
   MQTT: () => {
@@ -29,7 +30,17 @@ const API = {
 
     function onMessageArrived (message) {
       //console.log(message.payloadString)
-      MQTT_MESSAGE_ARRIVED(message.payloadString)
+      Dispatcher.dispatch({
+        type: TypeActions.MQTT_MESSAGE_ARRIVED,
+        data: message.payloadString
+      })
+
+      setTimeout(() => {
+        Dispatcher.dispatch({
+          type: TypeActions.DEBUG,
+          data: message.payloadString
+        })
+      }, 3000)
     }
   }
 }

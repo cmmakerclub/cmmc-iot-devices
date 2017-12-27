@@ -95,11 +95,14 @@ const DeviceStatus = (props) => {
 
   }
 
+  const cardHeaderActive = (props.online) ? 'card-header bg-success' : 'card-header bg-secondary'
+  const cardButtonActive = (props.online) ? 'btn btn-success' : 'btn btn-secondary'
+
   return (
-    <div className="col-md-4">
+    <div className="col-md-3">
       <div className="form-group">
         <div className="card">
-          <div className="card-header bg-secondary">
+          <div className={cardHeaderActive}>
           <span style={{color: 'white'}}>
             {props.title}
           </span>
@@ -110,7 +113,7 @@ const DeviceStatus = (props) => {
             <p>run time : {props.runtime}</p>
             <p>prefix : {props.prefix}</p>
             <div className='text-right'>
-              <button typeof='button' className='btn btn-secondary' onClick={(e) => handleClick(e)}>MORE INFO</button>
+              <button typeof='button' className={cardButtonActive} onClick={(e) => handleClick(e)}>MORE INFO</button>
             </div>
           </div>
         </div>

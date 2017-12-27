@@ -1,4 +1,4 @@
-import ActionTypes from './redux/Constants'
+import ActionTypes from './flux/Constants'
 import { createStore } from 'redux'
 
 let initialState = {
