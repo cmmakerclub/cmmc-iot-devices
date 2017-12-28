@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import DeviceStatus from './components/DeviceStatus'
+import Navbar from './components/Menu'
+import Device from './components/Device'
 import uuid from 'uuid'
 import store from './flux/Store'
 
@@ -43,11 +44,14 @@ export default class App extends Component {
 
     return (
       <div className='container'>
+
+        <Navbar/>
+
         <div className="row" style={{marginTop: 30}}>
 
           {
             this.state.devices.map(device => {
-              return <DeviceStatus
+              return <Device
                 key={uuid()}
                 title={device.d.myName}
                 ip={device.info.ip}
