@@ -11,11 +11,11 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem,
-  Form,
-  FormGroup,
-  Label
+  DropdownItem
 } from 'reactstrap'
+import ActionTypes from '../flux/Constants'
+import Dispatcher from '../flux/Dispatcher'
+import store from '../flux/Store'
 
 export default class Menu extends Component {
 
@@ -33,6 +33,24 @@ export default class Menu extends Component {
     })
   }
 
+  showAll = () => {
+    Dispatcher.dispatch({
+      type: ActionTypes.SHOW_ALL_DEVICES
+    })
+  }
+
+  filterOnline = () => {
+    Dispatcher.dispatch({
+      type: ActionTypes.FILTER_DEVICES_ONLINE
+    })
+  }
+
+  filterOffline = () => {
+    Dispatcher.dispatch({
+      type: ActionTypes.FILTER_DEVICES_OFFLINE
+    })
+  }
+
   render () {
 
     return (
@@ -46,18 +64,18 @@ export default class Menu extends Component {
             <NavItem>
               <Input type="text" id="filterDevice" placeholder="Filter device name"/>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
+            <UncontrolledDropdown nav>
               <DropdownToggle nav caret>
                 Status
               </DropdownToggle>
               <DropdownMenu>
-                <DropdownItem>
+                <DropdownItem onClick={this.showAll}>
                   Show All
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem onClick={this.filterOnline}>
                   <i className='fa fa-circle text-success'/> Online
                 </DropdownItem>
-                <DropdownItem>
+                <DropdownItem onClick={this.filterOffline}>
                   <i className='fa fa-circle text-secondary'/> Offline
                 </DropdownItem>
               </DropdownMenu>

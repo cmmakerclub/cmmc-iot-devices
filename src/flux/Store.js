@@ -7,17 +7,21 @@ class MyStore extends Store {
   constructor (props) {
     super(props)
 
-    this.devices = []
-    this.devicesOnline = []
+    this.state = {
+      devices: [],
+      devicesOnline: [],
+      filterMode: 0 // 0 = show all, 1 = online, 2 = offline
+    }
+
   }
 
   __onDispatch (action) {
 
     if (action.type === ActionTypes.MQTT_MESSAGE_ARRIVED) {
 
-      const previousValue = this.devices
+      const previousValue = this.state.devices
       const currentValue = JSON.parse(action.data)
-      const devicesOnline = this.devicesOnline
+      const devicesOnline = this.state.devicesOnline
 
       if (previousValue[currentValue.d.myName] === undefined) {
         previousValue[currentValue.d.myName] = currentValue
@@ -26,6 +30,22 @@ class MyStore extends Store {
       }
 
       this.__emitChange()
+
+    } else if (action.type === ActionTypes.SHOW_ALL_DEVICES) {
+
+      this.state.filterMode = 0
+      this.__emitChange()
+
+    } else if (action.type === ActionTypes.FILTER_DEVICES_ONLINE) {
+
+      this.state.filterMode = 1
+      this.__emitChange()
+
+    } else if (action.type === ActionTypes.FILTER_DEVICES_OFFLINE) {
+
+      this.state.filterMode = 2
+      this.__emitChange()
+
     }
 
   }

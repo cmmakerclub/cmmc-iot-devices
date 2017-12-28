@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 import Navbar from './components/Menu'
 import Device from './components/Device'
 import uuid from 'uuid'
+import ActionTypes from './flux/Constants'
+import Dispatcher from './flux/Dispatcher'
 import store from './flux/Store'
+import _ from 'underscore'
 
 export default class App extends Component {
 
@@ -10,27 +13,81 @@ export default class App extends Component {
     super(props)
     this.state = {
       devices: [],
-      devicesOnline: []
+      devicesOnline: [],
+      bufferDevices: []
     }
 
+    this.storeData = store.state
+
     store.addListener(() => {
-      const devices = store.devices
-      const devicesOnline = store.devicesOnline
+      const devices = this.storeData.devices
+      const devicesOnline = this.storeData.devicesOnline
+      this.bufferDevices = this.state.bufferDevices
 
       const arrayDevices = []
-      Object.keys(devices).map(key => {
-        arrayDevices.push(devices[key])
-      })
-
       const arrayDevicesOnline = []
-      Object.keys(devicesOnline).map(key => {
-        arrayDevicesOnline[key] = (devicesOnline[key])
-      })
 
-      this.setState({devices: arrayDevices})
-      this.setState({devicesOnline: arrayDevicesOnline})
+      if (devices !== this.state.devices) {
+        Object.keys(devices).map(key => {
+          arrayDevices.push(devices[key])
+        })
+        this.setState({devices: arrayDevices})
+      }
 
-      // console.log(this.state)
+      if (devicesOnline !== this.state.devicesOnline) {
+        Object.keys(devicesOnline).map(key => {
+          arrayDevicesOnline[key] = (devicesOnline[key])
+        })
+        this.setState({devicesOnline: arrayDevicesOnline})
+      }
+
+      switch (this.storeData.filterMode) {
+        case 0 : // show all
+          if (!_.isEmpty(this.bufferDevices)) {
+            this.setState({
+              devices: this.state.bufferDevices,
+              bufferDevices: []
+            })
+          }
+
+          break
+        case 1 : // devices online
+          const filterDevicesOnline = []
+          Object.keys(devicesOnline).map(key => {
+            filterDevicesOnline.push(devicesOnline[key])
+          })
+          this.setState({
+            bufferDevices: arrayDevices,
+            devices: filterDevicesOnline
+          })
+
+          break
+        case 2 : // devices offline
+          if (!_.isEmpty(this.bufferDevices)) {
+
+            const offlineDevices = []
+
+            Object.keys(devicesOnline).map(key => {
+              _.find(this.bufferDevices, device => {
+                if (device.d.myName !== key) {
+                  offlineDevices.push(device)
+                }
+              })
+            })
+
+            this.setState({
+              devices: offlineDevices
+            })
+
+            console.log(this.state)
+          }
+
+          break
+        default :
+          return false
+      }
+
+      //console.log(this.storeData)
     })
 
     console.log('constructor', this.props)
