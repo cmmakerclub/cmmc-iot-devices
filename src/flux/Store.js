@@ -10,7 +10,8 @@ class MyStore extends Store {
     this.state = {
       devices: [],
       devicesOnline: [],
-      filterMode: 0 // 0 = show all, 1 = online, 2 = offline
+      filterMode: 0, // 0 = show all, 1 = online, 2 = offline, 3 = filter by name
+      filterDevices: []
     }
 
   }
@@ -44,6 +45,20 @@ class MyStore extends Store {
     } else if (action.type === ActionTypes.FILTER_DEVICES_OFFLINE) {
 
       this.state.filterMode = 2
+      this.__emitChange()
+
+    } else if (action.type === ActionTypes.FILTER_DEVICES_NAME) {
+
+      const search = action.data
+      let filterDevices = []
+      Object.keys(this.state.devices).map(key => {
+        let matchingKey = key.indexOf(search) !== -1
+        if (matchingKey) {
+          filterDevices.push(this.state.devices[key])
+        }
+      })
+      this.state.filterDevices = filterDevices
+      this.state.filterMode = 3
       this.__emitChange()
 
     }

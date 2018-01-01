@@ -51,6 +51,15 @@ export default class Menu extends Component {
     })
   }
 
+  filterDeviceName = (e) => {
+    e.preventDefault()
+    Dispatcher.dispatch({
+      type: ActionTypes.FILTER_DEVICES_NAME,
+      data: e.target.value
+    })
+    //console.log(e.target.value)
+  }
+
   render () {
 
     return (
@@ -62,7 +71,7 @@ export default class Menu extends Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <Input type="text" id="filterDevice" placeholder="Filter device name"/>
+              <Input type="text" id="filterDevice" placeholder="Filter device name" onChange={(e) => this.filterDeviceName(e)}/>
             </NavItem>
             <UncontrolledDropdown nav>
               <DropdownToggle nav caret>
@@ -81,7 +90,7 @@ export default class Menu extends Component {
               </DropdownMenu>
             </UncontrolledDropdown>
             <NavItem>
-              <NavLink href="#">
+              <NavLink href="">
                 <i className='fa fa-refresh'/>
               </NavLink>
             </NavItem>

@@ -14,7 +14,8 @@ export default class App extends Component {
     this.state = {
       devices: [],
       devicesOnline: [],
-      bufferDevices: []
+      bufferDevices: [],
+      filterDevices: []
     }
 
     this.storeData = store.state
@@ -22,6 +23,7 @@ export default class App extends Component {
     store.addListener(() => {
       const devices = this.storeData.devices
       const devicesOnline = this.storeData.devicesOnline
+      const filterDevices = this.storeData.filterDevices
       this.bufferDevices = this.state.bufferDevices
 
       const arrayDevices = []
@@ -82,6 +84,14 @@ export default class App extends Component {
             console.log(this.state)
           }
 
+          break
+        case 3 : // filter devices by name
+          this.setState({
+            bufferDevices: this.state.devices,
+            devices: filterDevices
+          })
+          console.log('result : ', filterDevices)
+          console.log('filter completed.')
           break
         default :
           return false
