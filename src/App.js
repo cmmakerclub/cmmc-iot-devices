@@ -7,6 +7,7 @@ import Dispatcher from './flux/Dispatcher'
 import store from './flux/Store'
 import _ from 'underscore'
 import API from './API'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
 export default class App extends Component {
 
@@ -179,6 +180,16 @@ export default class App extends Component {
 
                     </div>
                   </div>
+
+                  <div className="form-group text-right">
+                    <CopyToClipboard text={this.state.topicMessages}>
+                      <button type='button' className='btn btn-primary'>
+                        <i className='fa fa-clipboard'/>&nbsp;
+                        copy
+                      </button>
+                    </CopyToClipboard>
+                  </div>
+
                 </form>
 
               </div>

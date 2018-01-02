@@ -8,6 +8,7 @@
     "font-awesome": "^4.7.0",
     "paho-mqtt": "https://github.com/cmmakerclub/paho-mqtt.git",
     "react": "^16.2.0",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17",
     "reactstrap": "^5.0.0-alpha.4",

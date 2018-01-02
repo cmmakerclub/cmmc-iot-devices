@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c0d3d900-8903-4e94-802c-4b346037f88c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/API.js" afterPath="$PROJECT_DIR$/src/API.js" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
-      <change beforePath="$PROJECT_DIR$/src/flux/Constants.js" afterPath="$PROJECT_DIR$/src/flux/Constants.js" />
-      <change beforePath="$PROJECT_DIR$/src/flux/Store.js" afterPath="$PROJECT_DIR$/src/flux/Store.js" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" afterPath="$PROJECT_DIR$/yarn.lock" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,17 +19,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="118" column="22" lean-forward="true" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+            <state relative-caret-position="383">
+              <caret line="183" column="57" lean-forward="false" selection-start-line="183" selection-start-column="57" selection-end-line="183" selection-end-column="57" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
-                <marker date="1514870168140" expanded="true" signature="3365:3696" ph="..." />
-                <marker date="1514870168140" expanded="false" signature="3422:3434" ph="..." />
-                <marker date="1514870168140" expanded="true" signature="3439:3696" ph="..." />
-                <marker date="1514870168140" expanded="true" signature="3529:3696" ph="..." />
+                <marker date="1514877988240" expanded="true" signature="3423:3754" ph="..." />
+                <marker date="1514877988240" expanded="false" signature="3480:3492" ph="..." />
+                <marker date="1514877988240" expanded="true" signature="3497:3754" ph="..." />
+                <marker date="1514877988240" expanded="true" signature="3587:3754" ph="..." />
               </folding>
             </state>
           </provider>
@@ -40,8 +38,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="30">
+              <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -51,13 +49,13 @@
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+              <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="API.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="API.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/API.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="156">
@@ -81,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/src/flux/Store.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-188">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -136,12 +134,12 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/Menu.js" />
-        <option value="$USER_HOME$/cmmakerclub.github.io/src/cmmc-iot-devices/index.html" />
         <option value="$PROJECT_DIR$/src/flux/Constants.js" />
         <option value="$PROJECT_DIR$/src/flux/Store.js" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/API.js" />
+        <option value="$USER_HOME$/cmmakerclub.github.io/src/cmmc-iot-devices/index.html" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -261,12 +259,12 @@
       <workItem from="1514557140612" duration="145000" />
       <workItem from="1514791949847" duration="133000" />
       <workItem from="1514792112095" duration="5376000" />
-      <workItem from="1514865421502" duration="4553000" />
+      <workItem from="1514865421502" duration="5976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75200000" />
+    <option name="totallyTimeSpent" value="76623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="719" extended-state="6" />
@@ -281,7 +279,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27464008" sideWeight="0.49605057" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27403846" sideWeight="0.49605057" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -419,10 +417,10 @@
           <caret line="16" column="32" lean-forward="true" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
-            <marker date="1514870168140" expanded="true" signature="3365:3696" ph="..." />
-            <marker date="1514870168140" expanded="false" signature="3422:3434" ph="..." />
-            <marker date="1514870168140" expanded="true" signature="3439:3696" ph="..." />
-            <marker date="1514870168140" expanded="true" signature="3529:3696" ph="..." />
+            <marker date="1514877988240" expanded="true" signature="3423:3754" ph="..." />
+            <marker date="1514877988240" expanded="false" signature="3480:3492" ph="..." />
+            <marker date="1514877988240" expanded="true" signature="3497:3754" ph="..." />
+            <marker date="1514877988240" expanded="true" signature="3587:3754" ph="..." />
           </folding>
         </state>
       </provider>
@@ -544,16 +542,8 @@
         <state relative-caret-position="663">
           <caret line="56" column="34" lean-forward="false" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/cmmakerclub.github.io/src/cmmc-iot-devices/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="7" lean-forward="false" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -568,7 +558,7 @@
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+          <caret line="8" column="10" lean-forward="false" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -581,32 +571,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="49" column="9" lean-forward="false" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="118" column="22" lean-forward="true" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-            <marker date="1514870168140" expanded="true" signature="3365:3696" ph="..." />
-            <marker date="1514870168140" expanded="false" signature="3422:3434" ph="..." />
-            <marker date="1514870168140" expanded="true" signature="3439:3696" ph="..." />
-            <marker date="1514870168140" expanded="true" signature="3529:3696" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/flux/Store.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-188">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
           </folding>
@@ -618,6 +586,36 @@
         <state relative-caret-position="156">
           <caret line="21" column="48" lean-forward="false" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/cmmakerclub.github.io/src/cmmc-iot-devices/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="183" column="57" lean-forward="false" selection-start-line="183" selection-start-column="57" selection-end-line="183" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+            <marker date="1514877988240" expanded="true" signature="3423:3754" ph="..." />
+            <marker date="1514877988240" expanded="false" signature="3480:3492" ph="..." />
+            <marker date="1514877988240" expanded="true" signature="3497:3754" ph="..." />
+            <marker date="1514877988240" expanded="true" signature="3587:3754" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
