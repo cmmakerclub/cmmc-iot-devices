@@ -3,7 +3,7 @@ import Dispatcher from './flux/Dispatcher'
 import TypeActions from './flux/Constants'
 
 const API = {
-  MQTT: () => {
+  MQTT: (topic, filterTopic = false) => {
     const init = {
       hostname: 'mqtt.cmmc.io',
       port: 9001,
@@ -19,7 +19,7 @@ const API = {
 
     function onConnect () {
       //console.log('onConnect')
-      client.subscribe('MARU/+/status')
+      client.subscribe(topic || 'MARU/+/status')
     }
 
     function onConnectionLost (responseObject) {
@@ -30,17 +30,18 @@ const API = {
 
     function onMessageArrived (message) {
       //console.log(message.payloadString)
-      Dispatcher.dispatch({
-        type: TypeActions.MQTT_MESSAGE_ARRIVED,
-        data: message.payloadString
-      })
-
-      setTimeout(() => {
+      if (!filterTopic) {
         Dispatcher.dispatch({
-          type: TypeActions.DEBUG,
+          type: TypeActions.MQTT_MESSAGE_ARRIVED,
           data: message.payloadString
         })
-      }, 3000)
+      } else {
+        Dispatcher.dispatch({
+          type: TypeActions.MQTT_TOPIC_MESSAGE_ARRIVED,
+          data: message.payloadString
+        })
+        //console.log('message incoming : ', message.payloadString)
+      }
     }
   }
 }

@@ -6,6 +6,7 @@ import ActionTypes from './flux/Constants'
 import Dispatcher from './flux/Dispatcher'
 import store from './flux/Store'
 import _ from 'underscore'
+import API from './API'
 
 export default class App extends Component {
 
@@ -15,7 +16,9 @@ export default class App extends Component {
       devices: [],
       devicesOnline: [],
       bufferDevices: [],
-      filterDevices: []
+      filterDevices: [],
+      filterTopic: 'MARU/',
+      topicMessages: ''
     }
 
     this.storeData = store.state
@@ -25,6 +28,7 @@ export default class App extends Component {
       const devicesOnline = this.storeData.devicesOnline
       const filterDevices = this.storeData.filterDevices
       this.bufferDevices = this.state.bufferDevices
+      const topicMessages = this.storeData.topicMessages
 
       const arrayDevices = []
       const arrayDevicesOnline = []
@@ -97,6 +101,10 @@ export default class App extends Component {
           return false
       }
 
+      if (topicMessages !== this.state.topicMessages) {
+        this.setState({topicMessages: topicMessages})
+      }
+
       //console.log(this.storeData)
     })
 
@@ -105,6 +113,12 @@ export default class App extends Component {
 
   componentDidMount () {
     console.log('componentDidMount', this.props)
+  }
+
+  filterTopic = (e) => {
+    e.preventDefault()
+    this.setState({filterTopic: `MARU/${e.target.value}`})
+    API.MQTT(this.state.filterTopic, true)
   }
 
   render () {
@@ -132,15 +146,49 @@ export default class App extends Component {
           }
 
         </div>
+
+        <div className="row" style={{marginTop: 20, marginBottom: 30}}>
+
+          <div className="col">
+            <div className="card">
+              <div className="card-body">
+
+                <form>
+                  <div className="form-group row">
+                    <label className="col-sm-2 col-form-label text-right">
+                      <b>Topic</b>
+                    </label>
+                    <div className="col-sm-10">
+                      <input type="text" className="form-control"
+                             onKeyUp={(e) => this.filterTopic(e)}
+                             placeholder="Prefix MARU/"/>
+                    </div>
+                  </div>
+
+                  <div className="form-group row">
+                    <label className="col-sm-2 col-form-label text-right">
+                      <b>
+                        Messages
+                      </b>
+                    </label>
+                    <div className="col-sm-10">
+
+                      <code>
+                        {this.state.topicMessages}
+                      </code>
+
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     )
   }
 
 }
-
-// const mapStateToProps = (state) => {
-//   return {
-//     devices: state.devices,
-//     devicesOnline: state.devicesOnline
-//   }
-// }

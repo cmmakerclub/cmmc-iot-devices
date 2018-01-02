@@ -11,7 +11,8 @@ class MyStore extends Store {
       devices: [],
       devicesOnline: [],
       filterMode: 0, // 0 = show all, 1 = online, 2 = offline, 3 = filter by name
-      filterDevices: []
+      filterDevices: [],
+      topicMessages: ''
     }
 
   }
@@ -30,6 +31,11 @@ class MyStore extends Store {
         devicesOnline[currentValue.d.myName] = currentValue
       }
 
+      this.__emitChange()
+
+    } else if (action.type === ActionTypes.MQTT_TOPIC_MESSAGE_ARRIVED) {
+
+      this.state.topicMessages = action.data
       this.__emitChange()
 
     } else if (action.type === ActionTypes.SHOW_ALL_DEVICES) {
